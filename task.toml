@@ -3,19 +3,31 @@ allow_internet = true
 
 [task]
 name = "local/battery-fleet-reserve-audit"
+description = "Repair a deterministic multi-period battery-fleet reserve audit with telemetry normalization, energy-constrained dispatch, feeder N-1 capacity, validation, and atomic reporting."
 authors = [{ name = "xyj" }]
-difficulty = "hard"
+keywords = ["energy-systems", "battery-storage", "grid-reliability", "reserve-audit", "python"]
 
 [agent]
 entrypoint = "solution/solve.sh"
+timeout_sec = 1800
 
 [environment]
 dockerfile = "environment/Dockerfile"
+build_timeout_sec = 900
+cpus = 1
+memory_mb = 2048
+storage_mb = 4096
+gpus = 0
+allow_internet = true
 network_mode = "public"
 
 [verifier]
 entrypoint = "tests/test.sh"
+timeout_sec = 300
 
 [metadata]
+difficulty = "expert"
+category = "energy-systems"
 tags = ["energy-systems", "battery-storage", "reserve-audit", "grid-reliability"]
-description = "Repair a deterministic battery-fleet reserve audit that combines duration-limited power, telemetry unit normalization, feeder N-1 contingency capacity, decision priority, validation, and atomic reporting."
+expert_time_estimate = "4h"
+description = "Repair a deterministic multi-period battery-fleet reserve audit with telemetry normalization, energy-constrained dispatch, feeder N-1 capacity, validation, and atomic reporting."
