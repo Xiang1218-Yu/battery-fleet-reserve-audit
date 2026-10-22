@@ -1,0 +1,21 @@
+schema_version = "1.3"
+allow_internet = true
+
+[task]
+name = "local/battery-fleet-reserve-audit"
+authors = [{ name = "xyj" }]
+difficulty = "hard"
+
+[agent]
+entrypoint = "solution/solve.sh"
+
+[environment]
+dockerfile = "environment/Dockerfile"
+network_mode = "public"
+
+[verifier]
+entrypoint = "tests/test.sh"
+
+[metadata]
+tags = ["energy-systems", "battery-storage", "reserve-audit", "grid-reliability"]
+description = "Repair a deterministic battery-fleet reserve audit that combines duration-limited power, telemetry unit normalization, feeder N-1 contingency capacity, decision priority, validation, and atomic reporting."
