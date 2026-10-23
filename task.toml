@@ -10,6 +10,7 @@ keywords = ["energy-systems", "battery-storage", "grid-reliability", "reserve-au
 [agent]
 entrypoint = "solution/solve.sh"
 timeout_sec = 3600
+user = "agent"
 
 [environment]
 dockerfile = "environment/Dockerfile"
@@ -24,6 +25,8 @@ network_mode = "public"
 [verifier]
 entrypoint = "tests/test.sh"
 timeout_sec = 1800
+user = "root"
+environment_mode = "shared"
 
 [metadata]
 difficulty = "expert"
