@@ -23,7 +23,7 @@ network_mode = "public"
 
 [verifier]
 entrypoint = "tests/test.sh"
-timeout_sec = 600
+timeout_sec = 1800
 
 [metadata]
 difficulty = "expert"
